@@ -7,6 +7,7 @@ class ProductProvider with ChangeNotifier {
   final Catalog catalog;
 
   List<ProductEntity> products = [];
+  List<ProductEntity> filteredProducts = [];
   ProductEntity? selectedProduct;
   Category selectedCategory = Category.none;
   String? errorMessage;
@@ -19,6 +20,7 @@ class ProductProvider with ChangeNotifier {
     result.fold(
       (productList) {
         products = productList;
+        filteredProducts = productList;
         notifyListeners();
       },
       (failure) {
@@ -44,7 +46,7 @@ class ProductProvider with ChangeNotifier {
   }
 
   Future<void> fetchProductsInCategory(Category category) async {
-    products = [];
+    filteredProducts = [];
     selectedCategory = category;
     notifyListeners();
 
@@ -54,7 +56,7 @@ class ProductProvider with ChangeNotifier {
       final result = await catalog.getProductsInCategory(category);
       result.fold(
         (productList) {
-          products = productList;
+          filteredProducts = productList;
           notifyListeners();
         },
         (failure) {
@@ -63,5 +65,13 @@ class ProductProvider with ChangeNotifier {
         },
       );
     }
+  }
+
+  void filterProducts(String query) {
+    filteredProducts = products
+        .where((element) =>
+            element.title!.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+    notifyListeners();
   }
 }

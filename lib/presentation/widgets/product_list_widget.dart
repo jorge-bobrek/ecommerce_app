@@ -12,14 +12,14 @@ class ProductListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final productProvider = Provider.of<ProductProvider>(context);
 
-    if (productProvider.products.isEmpty) {
+    if (productProvider.filteredProducts.isEmpty) {
       return const Center(child: CircularProgressIndicator());
     }
 
     return ListView.builder(
-      itemCount: productProvider.products.length,
+      itemCount: productProvider.filteredProducts.length,
       itemBuilder: (context, index) {
-        final product = productProvider.products[index];
+        final product = productProvider.filteredProducts[index];
         return ProductItemWidget(
           product: ProductMapper.toModel(product),
           onTap: () {

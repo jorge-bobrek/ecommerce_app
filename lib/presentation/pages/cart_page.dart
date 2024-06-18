@@ -1,4 +1,3 @@
-// lib/presentation/pages/cart_page.dart
 import 'package:ecommerce_app/data/mappers/product_mapper.dart';
 import 'package:ecommerce_app/presentation/providers/cart_provider.dart';
 import 'package:ecommerce_app/presentation/widgets/cart_control_widget.dart';
@@ -41,9 +40,9 @@ class CartPage extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  // Implementa la lógica para proceder al pago o finalizar la compra
+                  // TODO: Implementa la lógica para proceder al pago o finalizar la compra
                 },
-                child: const Text('Proceder al Pago'),
+                child: const Text('Ir a pagar'),
               ),
             ],
           );

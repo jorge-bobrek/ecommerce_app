@@ -14,11 +14,12 @@ dependencies:
     path: ../fake_store_api_package/
   fake_store_widgets_package:
     path: ../fake_store_widgets_package/
+  font_awesome_flutter: ^10.7.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
+  flutter_lints: ^4.0.0
 
 flutter:
   uses-material-design: true

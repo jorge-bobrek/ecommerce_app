@@ -1,3 +1,4 @@
+import 'package:fake_store_api_package/domain/utils/category_enum.dart';
 import 'package:fake_store_widgets_package/data/models/product_item_model.dart';
 import 'package:fake_store_api_package/domain/entities/product_entity.dart';
 
@@ -9,7 +10,7 @@ class ProductMapper {
       price: product.price,
       image: product.image,
       description: product.description,
-      category: product.category?.name,
+      category: product.category?.displayName,
       rating: RatingItemModel(
           rate: product.rating?.rate, count: product.rating?.count),
     );

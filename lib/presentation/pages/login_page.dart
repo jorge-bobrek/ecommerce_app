@@ -5,7 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'main_page.dart';
 
+/// A page for user login.
+///
+/// The [LoginPage] provides a form for users to log in with their email and password.
+/// It also provides navigation to the registration page.
 class LoginPage extends StatefulWidget {
+  /// Creates an instance of [LoginPage].
   const LoginPage({super.key});
 
   @override
@@ -19,6 +24,10 @@ class _LoginPageState extends State<LoginPage> {
 
     return LoginTemplate(
       title: 'Iniciar Sesión',
+
+      /// Handles the login process.
+      ///
+      /// After a successful login, navigates to the [MainPage] and shows a success message.
       onLogin: (email, password) {
         userProvider.login(email, password);
         Navigator.pushReplacement(
@@ -27,10 +36,13 @@ class _LoginPageState extends State<LoginPage> {
         );
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-              duration: const Duration(seconds: 1),
-              content: Text('Iniciaste sesión como: $email')),
+            duration: const Duration(seconds: 1),
+            content: Text('Iniciaste sesión como: $email'),
+          ),
         );
       },
+
+      /// Navigates to the registration page.
       registerNavigation: () {
         Navigator.push(
           context,

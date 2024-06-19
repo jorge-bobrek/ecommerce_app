@@ -1,15 +1,26 @@
 import 'package:fake_store_api_package/domain/utils/category_enum.dart';
 import 'package:flutter/material.dart';
 
+/// A widget that displays a dropdown menu for selecting a product category.
+///
+/// The [CategoryDropdownWidget] allows the user to select a category from a
+/// predefined list of categories. It displays the selected category and notifies
+/// the parent widget when the selection changes.
 class CategoryDropdownWidget extends StatelessWidget {
-  final Category? selectedCategory;
-  final ValueChanged<Category?> onChanged;
-
+  /// Creates an instance of [CategoryDropdownWidget].
+  ///
+  /// Both [selectedCategory] and [onChanged] are required.
   const CategoryDropdownWidget({
     super.key,
     required this.selectedCategory,
     required this.onChanged,
   });
+
+  /// The currently selected category.
+  final Category? selectedCategory;
+
+  /// Called when the user selects a different category.
+  final ValueChanged<Category?> onChanged;
 
   @override
   Widget build(BuildContext context) {

@@ -4,8 +4,16 @@ import 'package:fake_store_widgets_package/presentation/molecules/icon_with_coun
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+/// A custom app bar widget that includes a title and a cart icon with a counter.
+///
+/// The [AppBarWidget] displays the title of the current page and a cart icon
+/// that shows the total quantity of items in the cart. Tapping the cart icon
+/// navigates to the [CartPage].
 class AppBarWidget extends StatefulWidget implements PreferredSizeWidget {
+  /// Creates an instance of [AppBarWidget].
   const AppBarWidget({super.key, required this.title});
+
+  /// The title to be displayed in the app bar.
   final String title;
 
   @override

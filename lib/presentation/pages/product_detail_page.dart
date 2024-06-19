@@ -1,4 +1,3 @@
-// lib/presentation/pages/product_detail_page.dart
 import 'package:ecommerce_app/data/mappers/product_mapper.dart';
 import 'package:ecommerce_app/presentation/providers/cart_provider.dart';
 import 'package:ecommerce_app/presentation/providers/product_provider.dart';
@@ -7,16 +6,23 @@ import 'package:fake_store_widgets_package/presentation/organisms/product_detail
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+/// A page that displays the details of a selected product.
+///
+/// The [ProductDetailPage] shows detailed information about a product and provides
+/// an option to add the product to the cart.
 class ProductDetailPage extends StatelessWidget {
-  const ProductDetailPage({super.key, required this.productId});
-
+  /// The ID of the product to display.
   final int productId;
+
+  /// Creates an instance of [ProductDetailPage].
+  const ProductDetailPage({super.key, required this.productId});
 
   @override
   Widget build(BuildContext context) {
     final productProvider = Provider.of<ProductProvider>(context);
     final product =
         productProvider.products.firstWhere((prod) => prod.id == productId);
+
     return Scaffold(
       appBar: AppBarWidget(
         title: product.title ?? 'Detalles del Producto',

@@ -5,7 +5,12 @@ import 'package:fake_store_widgets_package/fake_store_widgets_package.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+/// A page that displays the shopping cart.
+///
+/// The [CartPage] shows the items in the cart, allows adjusting their quantities,
+/// and displays the total price. It also provides an option to proceed to checkout.
 class CartPage extends StatelessWidget {
+  /// Creates an instance of [CartPage].
   const CartPage({super.key});
 
   @override
@@ -18,6 +23,7 @@ class CartPage extends StatelessWidget {
         builder: (context, cartController, child) {
           return Column(
             children: [
+              /// Displays the list of items in the cart.
               Expanded(
                 child: ListView.builder(
                   itemCount: cartController.cartItems.length,
@@ -25,11 +31,13 @@ class CartPage extends StatelessWidget {
                     final cartItem = cartController.cartItems[index];
                     return ProductItemWidget(
                       product: ProductMapper.toModel(cartItem.product),
-                      trailing: CartControlWidget(cartItem: cartItem)
+                      trailing: CartControlWidget(cartItem: cartItem),
                     );
                   },
                 ),
               ),
+              
+              /// Displays the total price of the items in the cart.
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
@@ -38,6 +46,8 @@ class CartPage extends StatelessWidget {
                       fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
+              
+              /// Button to proceed to checkout.
               ElevatedButton(
                 onPressed: () {
                   // TODO: Implementa la lógica para proceder al pago o finalizar la compra

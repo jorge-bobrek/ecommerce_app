@@ -5,7 +5,12 @@ import 'search_page.dart';
 import 'account_page.dart';
 import 'support_page.dart';
 
+/// The main page of the application with bottom navigation.
+///
+/// The [MainPage] provides navigation between the home, search, account,
+/// and support pages using a [BottomNavigationBar].
 class MainPage extends StatefulWidget {
+  /// Creates an instance of [MainPage].
   const MainPage({super.key});
 
   @override
@@ -13,8 +18,10 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  /// The index of the currently selected page.
   int _selectedIndex = 0;
 
+  /// The list of pages to display based on the selected index.
   final List<Widget> _pages = [
     const HomePage(),
     const SearchPage(),
@@ -22,6 +29,9 @@ class _MainPageState extends State<MainPage> {
     const SupportPage(),
   ];
 
+  /// Handles item tap events on the [BottomNavigationBar].
+  ///
+  /// Sets the selected index to the tapped item's index and updates the state.
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;

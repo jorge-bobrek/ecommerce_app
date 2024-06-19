@@ -5,8 +5,15 @@ import 'package:fake_store_widgets_package/presentation/atoms/label_widget.dart'
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+/// A widget that provides controls for managing a cart item.
+///
+/// The [CartControlWidget] displays buttons to increase, decrease, or remove
+/// the quantity of a product in the cart, as well as the current quantity.
 class CartControlWidget extends StatelessWidget {
+  /// Creates an instance of [CartControlWidget].
   const CartControlWidget({super.key, required this.cartItem});
+
+  /// The cart item to be controlled.
   final CartItem cartItem;
 
   @override
@@ -14,6 +21,7 @@ class CartControlWidget extends StatelessWidget {
     final cartProvider = Provider.of<CartProvider>(context);
     return Column(
       children: [
+        /// Button to increase the quantity of the product in the cart.
         IconButtonWidget(
           icon: Icons.add_circle_outline,
           onPressed: () {
@@ -21,7 +29,11 @@ class CartControlWidget extends StatelessWidget {
           },
           color: Colors.green,
         ),
+
+        /// Label displaying the current quantity of the product in the cart.
         LabelWidget(text: '${cartItem.quantity}', size: 16),
+
+        /// Button to decrease the quantity of the product in the cart or remove it if the quantity is 1.
         IconButtonWidget(
           icon: cartItem.quantity > 1
               ? Icons.remove_circle_outline

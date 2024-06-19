@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/presentation/pages/login_page.dart';
-import 'package:ecommerce_app/presentation/providers/user_provider.dart';
+import 'package:ecommerce_app/features/authentication/presentation/pages/login_page.dart';
+import 'package:ecommerce_app/features/authentication/presentation/providers/user_provider.dart';
 import 'package:fake_store_widgets_package/presentation/atoms/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

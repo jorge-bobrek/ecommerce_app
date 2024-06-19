@@ -1,9 +1,9 @@
-import 'package:ecommerce_app/presentation/pages/register_page.dart';
-import 'package:ecommerce_app/presentation/providers/user_provider.dart';
+import 'package:ecommerce_app/features/authentication/presentation/pages/register_page.dart';
+import 'package:ecommerce_app/features/product/presentation/pages/main_page.dart';
+import 'package:ecommerce_app/features/authentication/presentation/providers/user_provider.dart';
 import 'package:fake_store_widgets_package/presentation/templates/login_template.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'main_page.dart';
 
 /// A page for user login.
 ///

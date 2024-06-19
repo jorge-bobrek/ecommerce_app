@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/presentation/pages/cart_page.dart';
-import 'package:ecommerce_app/presentation/providers/cart_provider.dart';
+import 'package:ecommerce_app/features/cart/presentation/pages/cart_page.dart';
+import 'package:ecommerce_app/features/cart/presentation/providers/cart_provider.dart';
 import 'package:fake_store_widgets_package/presentation/molecules/icon_with_counter_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

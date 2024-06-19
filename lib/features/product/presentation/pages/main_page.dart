@@ -1,9 +1,9 @@
-import 'package:ecommerce_app/presentation/widgets/app_bar_widget.dart';
+import 'package:ecommerce_app/features/account/presentation/pages/account_page.dart';
+import 'package:ecommerce_app/features/product/presentation/widgets/app_bar_widget.dart';
+import 'package:ecommerce_app/features/support/presentation/pages/support_page.dart';
 import 'package:flutter/material.dart';
 import 'home_page.dart';
 import 'search_page.dart';
-import 'account_page.dart';
-import 'support_page.dart';
 
 /// The main page of the application with bottom navigation.
 ///

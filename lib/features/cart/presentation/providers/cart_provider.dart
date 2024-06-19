@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/domain/entities/cart_item_entity.dart';
+import 'package:ecommerce_app/features/cart/domain/entities/cart_item_entity.dart';
 import 'package:fake_store_api_package/domain/entities/product_entity.dart';
 import 'package:flutter/material.dart';
 

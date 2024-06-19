@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/data/mappers/product_mapper.dart';
-import 'package:ecommerce_app/presentation/providers/cart_provider.dart';
-import 'package:ecommerce_app/presentation/widgets/cart_control_widget.dart';
+import 'package:ecommerce_app/features/cart/presentation/providers/cart_provider.dart';
+import 'package:ecommerce_app/features/cart/presentation/widgets/cart_control_widget.dart';
+import 'package:ecommerce_app/features/product/data/mappers/product_mapper.dart';
 import 'package:fake_store_widgets_package/fake_store_widgets_package.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

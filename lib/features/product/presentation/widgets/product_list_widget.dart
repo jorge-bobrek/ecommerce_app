@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/data/mappers/product_mapper.dart';
-import 'package:ecommerce_app/presentation/providers/cart_provider.dart';
-import 'package:ecommerce_app/presentation/providers/product_provider.dart';
+import 'package:ecommerce_app/features/cart/presentation/providers/cart_provider.dart';
+import 'package:ecommerce_app/features/product/data/mappers/product_mapper.dart';
+import 'package:ecommerce_app/features/product/presentation/providers/product_provider.dart';
 import 'package:fake_store_widgets_package/fake_store_widgets_package.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -30,7 +30,7 @@ class ProductListWidget extends StatelessWidget {
         final product = productProvider.filteredProducts[index];
         return ProductItemWidget(
           product: ProductMapper.toModel(product),
-          
+
           /// Navigates to the product detail page when the product is tapped.
           onTap: () {
             Navigator.pushNamed(
@@ -39,11 +39,11 @@ class ProductListWidget extends StatelessWidget {
               arguments: product.id,
             );
           },
-          
+
           /// Displays an icon button to add the product to the cart.
           trailing: IconButtonWidget(
             icon: Icons.add_shopping_cart,
-            
+
             /// Adds the product to the cart and shows a snackbar notification.
             onPressed: () {
               Provider.of<CartProvider>(context, listen: false)

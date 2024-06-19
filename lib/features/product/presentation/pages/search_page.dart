@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/presentation/providers/product_provider.dart';
-import 'package:ecommerce_app/presentation/widgets/category_dropdown.dart';
-import 'package:ecommerce_app/presentation/widgets/product_list_widget.dart';
+import 'package:ecommerce_app/features/product/presentation/providers/product_provider.dart';
+import 'package:ecommerce_app/features/product/presentation/widgets/category_dropdown_widget.dart';
+import 'package:ecommerce_app/features/product/presentation/widgets/product_list_widget.dart';
 import 'package:fake_store_widgets_package/fake_store_widgets_package.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

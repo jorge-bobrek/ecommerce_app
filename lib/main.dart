@@ -50,7 +50,7 @@ class MainApp extends StatelessWidget {
         /// Defines the home page of the application based on the user's authentication state.
         home: Consumer<UserProvider>(
           builder: (context, userController, _) {
-            return userController.email == null
+            return userController.currentUser == null
                 ? const LoginPage()
                 : const MainPage();
           },

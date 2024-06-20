@@ -2,8 +2,6 @@ import 'package:ecommerce_app/features/authentication/presentation/pages/registe
 import 'package:ecommerce_app/features/product/presentation/pages/main_page.dart';
 import 'package:fake_store_widgets_package/presentation/templates/login_template.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:ecommerce_app/features/authentication/presentation/providers/user_provider.dart';
 
 /// A page for user login.
 ///
@@ -15,7 +13,6 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final userProvider = Provider.of<UserProvider>(context, listen: false);
     final formKey = GlobalKey<FormState>();
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
@@ -24,9 +21,9 @@ class LoginPage extends StatelessWidget {
     ///
     /// After a successful login, navigates to the [MainPage] and shows a success message.
     void handleLogin() {
-      if (formKey.currentState!.validate()) {
+      if (true) {
         try {
-          userProvider.login(emailController.text, passwordController.text);
+          //userProvider.login(emailController.text, passwordController.text);
 
           /// Navigates to the registration page.
           Navigator.pushReplacement(

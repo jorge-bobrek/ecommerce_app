@@ -1,5 +1,8 @@
+import 'package:ecommerce_app/features/cart/domain/entities/cart_item_entity.dart';
 import 'package:ecommerce_app/features/cart/presentation/providers/cart_provider.dart';
+import 'package:ecommerce_app/features/cart/presentation/widgets/cart_control_widget.dart';
 import 'package:ecommerce_app/features/product/data/mappers/product_mapper.dart';
+import 'package:ecommerce_app/features/product/presentation/pages/product_detail_page.dart';
 import 'package:ecommerce_app/features/product/presentation/providers/product_provider.dart';
 import 'package:fake_store_widgets_package/fake_store_widgets_package.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +20,6 @@ class ProductListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final productProvider = Provider.of<ProductProvider>(context);
-
     // Shows a loading indicator if the list of filtered products is empty
     if (productProvider.filteredProducts.isEmpty) {
       return const Center(child: CircularProgressIndicator());
@@ -28,33 +30,28 @@ class ProductListWidget extends StatelessWidget {
       itemCount: productProvider.filteredProducts.length,
       itemBuilder: (context, index) {
         final product = productProvider.filteredProducts[index];
+        final cartItem =
+            Provider.of<CartProvider>(context).cartItems.firstWhere(
+                  (item) => item.product.id == product.id,
+                  orElse: () => CartItem(product: product, quantity: 0),
+                );
         return ProductItemWidget(
           product: ProductMapper.toModel(product),
 
           /// Navigates to the product detail page when the product is tapped.
           onTap: () {
-            Navigator.pushNamed(
+            Navigator.push(
               context,
-              '/product-detail',
-              arguments: product.id,
+              MaterialPageRoute(
+                builder: (context) => ProductDetailPage(productId: product.id!),
+              ),
             );
           },
 
           /// Displays an icon button to add the product to the cart.
-          trailing: IconButtonWidget(
-            icon: Icons.add_shopping_cart,
-
-            /// Adds the product to the cart and shows a snackbar notification.
-            onPressed: () {
-              Provider.of<CartProvider>(context, listen: false)
-                  .addProduct(product);
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Producto añadido al carrito'),
-                  duration: Durations.long4,
-                ),
-              );
-            },
+          trailing: CartControlWidget(
+            cartItem: cartItem,
+            orientation: Axis.vertical,
           ),
         );
       },

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:fake_store_api_package/domain/entities/product_entity.dart';
 import 'package:fake_store_api_package/domain/utils/category_enum.dart';
 import 'package:fake_store_api_package/catalog.dart';
@@ -16,6 +18,9 @@ class ProductProvider with ChangeNotifier {
 
   /// The list of products filtered by a query or category.
   List<ProductEntity> filteredProducts = [];
+
+  /// The list of products featured to display in the home page.
+  List<ProductEntity> featuredProducts = [];
 
   /// The currently selected product.
   ProductEntity? selectedProduct;
@@ -39,6 +44,7 @@ class ProductProvider with ChangeNotifier {
       (productList) {
         products = productList;
         filteredProducts = productList;
+        getFeaturedProducts();
         notifyListeners();
       },
       (failure) {
@@ -100,5 +106,11 @@ class ProductProvider with ChangeNotifier {
             element.title!.toLowerCase().contains(query.toLowerCase()))
         .toList();
     notifyListeners();
+  }
+
+  void getFeaturedProducts() {
+    featuredProducts = products;
+    featuredProducts.shuffle(Random());
+    featuredProducts = featuredProducts.take(3).toList();
   }
 }

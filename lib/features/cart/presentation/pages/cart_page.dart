@@ -31,7 +31,10 @@ class CartPage extends StatelessWidget {
                     final cartItem = cartController.cartItems[index];
                     return ProductItemWidget(
                       product: ProductMapper.toModel(cartItem.product),
-                      trailing: CartControlWidget(cartItem: cartItem),
+                      trailing: CartControlWidget(
+                        cartItem: cartItem,
+                        orientation: Axis.vertical,
+                      ),
                     );
                   },
                 ),
@@ -49,9 +52,7 @@ class CartPage extends StatelessWidget {
               
               /// Button to proceed to checkout.
               ElevatedButton(
-                onPressed: () {
-                  // TODO: Implementa la lógica para proceder al pago o finalizar la compra
-                },
+                onPressed: () {},
                 child: const Text('Ir a pagar'),
               ),
             ],

@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/features/product/presentation/pages/home_page.dart';
+import 'package:ecommerce_app/features/home/presentation/pages/home_page.dart';
 import 'package:ecommerce_app/features/authentication/presentation/pages/login_page.dart';
 import 'package:ecommerce_app/features/product/presentation/pages/main_page.dart';
 import 'package:ecommerce_app/features/cart/presentation/providers/cart_provider.dart';
@@ -30,7 +30,7 @@ class MainApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => ProductProvider(
             catalog: Catalog(),
-          ),
+          )..fetchProducts(),
         ),
 
         /// Provides the [CartProvider] to manage the shopping cart.

@@ -43,12 +43,16 @@ class _HomePageState extends State<HomePage> {
               Consumer<ProductProvider>(
                 builder: (context, productProvider, child) {
                   if (productProvider.products.isEmpty) {
-                    return Row(
-                      children: [
-                        loading,
-                        loading,
-                        loading,
-                      ],
+                    return SizedBox(
+                      height: 300,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          loading,
+                          loading,
+                          loading,
+                        ],
+                      ),
                     );
                   } else {
                     return FeaturedProductsWidget(

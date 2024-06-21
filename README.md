@@ -4,6 +4,10 @@
 ## Resumen del Proyecto
 "Los Recuerdos De Ella" es una aplicación de tienda en línea desarrollada con Flutter. El proyecto hace uso de los paquetes `fake_store_api_package` y `fake_store_widgets_package` para manejar los llamados al API y el sistema de diseño basado en atomic design, respectivamente.
 
+## Flujo de la Aplicación
+
+![Diagrama](./assets/diagram.png?raw=true)
+
 ## Estructura de la Aplicación
 
 ```

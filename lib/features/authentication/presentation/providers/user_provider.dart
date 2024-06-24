@@ -7,11 +7,11 @@ import 'package:ecommerce_app/features/authentication/data/models/user_model.dar
 /// when the authentication state changes.
 class UserProvider extends ChangeNotifier {
   /// The currently logged-in user.
-  User? _currentUser;
+  UserModel? _currentUser;
 
   /// The list of registered users.
-  final List<User> _users = [
-    User(
+  final List<UserModel> _users = [
+    UserModel(
       firstName: 'Default',
       lastName: 'User',
       email: 'default@user.com',
@@ -21,10 +21,10 @@ class UserProvider extends ChangeNotifier {
   ];
 
   /// Gets the currently logged-in user.
-  User? get currentUser => _currentUser;
+  UserModel? get currentUser => _currentUser;
 
   /// Gets the list of registered users.
-  List<User> get users => List.unmodifiable(_users);
+  List<UserModel> get users => List.unmodifiable(_users);
 
   /// Logs in a user with the provided email and password.
   ///
@@ -52,7 +52,7 @@ class UserProvider extends ChangeNotifier {
 
   /// Registers a new user with the provided details.
   ///
-  /// This method creates a new [User] instance and adds it to the list of users.
+  /// This method creates a new [UserModel] instance and adds it to the list of users.
   void register({
     required String firstName,
     required String lastName,
@@ -60,7 +60,7 @@ class UserProvider extends ChangeNotifier {
     required String document,
     required String password,
   }) {
-    final newUser = User(
+    final newUser = UserModel(
       firstName: firstName,
       lastName: lastName,
       email: email,

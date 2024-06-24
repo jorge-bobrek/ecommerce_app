@@ -1,5 +1,5 @@
 /// A model class representing a user in the application.
-class User {
+class UserModel {
   /// The first name of the user.
   final String firstName;
 
@@ -15,8 +15,8 @@ class User {
   /// The password of the user.
   final String password;
 
-  /// Creates a new [User] instance.
-  User({
+  /// Creates a new [UserModel] instance.
+  UserModel({
     required this.firstName,
     required this.lastName,
     required this.email,

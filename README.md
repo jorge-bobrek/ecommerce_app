@@ -11,64 +11,64 @@
 ## Estructura de la Aplicación
 
 ```
-lib/
-    main.dart
-    features/
-        account/
-            presentation/
-                pages/
-                    account_page.dart
-        authentication/
-            data/
-                models/
-                    user_model.dart
-            presentation/
-                pages/
-                    login_page.dart
-                    register_page.dart
-                providers/
-                    user_provider.dart
-        cart/
-            domain/
-                entities/
-                    cart_item_entity.dart
-            presentation/
-                pages/
-                    cart_page.dart
-                providers/
-                    cart_provider.dart
-                widgets/
-                    add_to_cart_widget.dart
-                    cart_control_widget.dart
-                    quantity_controls_widget.dart
-        home/
-            presentation/
-                pages/
-                    home_page.dart
-                widgets/
-                    featured_products_widget.dart
-                    product_card_widget.dart
-                    promotion_banner.dart
-                    promotions_widget.dart
-        product/
-            data/
-                mappers/
-                    product_mapper.dart
-            presentation/
-                pages/
-                    main_page.dart
-                    product_detail_page.dart
-                    search_page.dart
-                providers/
-                    product_provider.dart
-                widgets/
-                    app_bar_widget.dart
-                    category_dropdown_widget.dart
-                    product_list_widget.dart
-        support/
-            presentation/
-                pages/
-                    support_page.dart
+├── main.dart
+└── features/
+    ├── home/
+    │   └── presentation/
+    │       ├── pages/
+    │       │   └── home_page.dart
+    │       └── widgets/
+    │           ├── featured_products_widget.dart
+    │           ├── promotions_widget.dart
+    │           ├── product_card_widget.dart
+    │           └── promotion_banner.dart
+    ├── product/
+    │   ├── data/
+    │   │   └── mappers/
+    │   │       └── product_mapper.dart
+    │   └── presentation/
+    │       ├── providers/
+    │       │   └── product_provider.dart
+    │       ├── pages/
+    │       │   ├── main_page.dart
+    │       │   ├── product_detail_page.dart
+    │       │   └── search_page.dart
+    │       └── widgets/
+    │           ├── product_list_widget.dart
+    │           ├── app_bar_widget.dart
+    │           ├── category_dropdown_widget.dart
+    │           └── empty_product_list_widget.dart
+    ├── support/
+    │   └── presentation/
+    │       └── pages/
+    │           └── support_page.dart
+    ├── cart/
+    │   ├── domain/
+    │   │   └── entities/
+    │   │       └── cart_item_entity.dart
+    │   └── presentation/
+    │       ├── providers/
+    │       │   └── cart_provider.dart
+    │       ├── pages/
+    │       │   └── cart_page.dart
+    │       └── widgets/
+    │           ├── add_to_cart_widget.dart
+    │           ├── cart_control_widget.dart
+    │           └── quantity_controls_widget.dart
+    ├── account/
+    │   └── presentation/
+    │       └── pages/
+    │           └── account_page.dart
+    └── authentication/
+        ├── data/
+        │   └── models/
+        │       └── user_model.dart
+        └── presentation/
+            ├── providers/
+            │   └── user_provider.dart
+            └── pages/
+                ├── register_page.dart
+                └── login_page.dart
 ```
 
 ## Descripción de las Carpetas y Archivos

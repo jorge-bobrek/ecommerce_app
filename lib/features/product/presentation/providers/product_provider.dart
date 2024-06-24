@@ -39,6 +39,7 @@ class ProductProvider with ChangeNotifier {
   /// Notifies listeners when the products are successfully fetched or if an error occurs.
   Future<void> fetchProducts() async {
     products = [];
+    errorMessage = null;
     final result = await catalog.getProductsList();
     result.fold(
       (productList) {
@@ -58,6 +59,7 @@ class ProductProvider with ChangeNotifier {
   ///
   /// Notifies listeners when the product is successfully fetched or if an error occurs.
   Future<void> fetchProduct(int id) async {
+    errorMessage = null;
     selectedProduct = null;
     final result = await catalog.getProduct(id);
     result.fold(
@@ -76,6 +78,7 @@ class ProductProvider with ChangeNotifier {
   ///
   /// Notifies listeners when the products are successfully fetched or if an error occurs.
   Future<void> fetchProductsInCategory(Category category) async {
+    errorMessage = null;
     filteredProducts = [];
     selectedCategory = category;
     notifyListeners();
@@ -101,10 +104,14 @@ class ProductProvider with ChangeNotifier {
   ///
   /// Notifies listeners when the filtered products list is updated.
   void filterProducts(String query) {
+    errorMessage = null;
     filteredProducts = products
         .where((element) =>
             element.title!.toLowerCase().contains(query.toLowerCase()))
         .toList();
+    if (filteredProducts.isEmpty) {
+      errorMessage = 'No se encontraron productos';
+    }
     notifyListeners();
   }
 

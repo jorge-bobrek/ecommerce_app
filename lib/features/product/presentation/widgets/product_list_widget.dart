@@ -4,6 +4,7 @@ import 'package:ecommerce_app/features/cart/presentation/widgets/cart_control_wi
 import 'package:ecommerce_app/features/product/data/mappers/product_mapper.dart';
 import 'package:ecommerce_app/features/product/presentation/pages/product_detail_page.dart';
 import 'package:ecommerce_app/features/product/presentation/providers/product_provider.dart';
+import 'package:ecommerce_app/features/product/presentation/widgets/empty_product_list.dart';
 import 'package:fake_store_widgets_package/fake_store_widgets_package.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -20,11 +21,17 @@ class ProductListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final productProvider = Provider.of<ProductProvider>(context);
+
+    // Shows an error message when necessary
+    if (productProvider.errorMessage != null) {
+      return EmptyProductList(message: productProvider.errorMessage!);
+    }
+    
     // Shows a loading indicator if the list of filtered products is empty
     if (productProvider.filteredProducts.isEmpty) {
       return const Center(child: CircularProgressIndicator());
     }
-
+  
     // Builds a ListView of products
     return ListView.builder(
       itemCount: productProvider.filteredProducts.length,

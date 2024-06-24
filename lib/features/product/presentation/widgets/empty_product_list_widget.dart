@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 /// A widget to display when the product list is empty or an error occurs.
-class EmptyProductList extends StatelessWidget {
-  const EmptyProductList({super.key, required this.message});
+class EmptyProductListWidget extends StatelessWidget {
+  const EmptyProductListWidget({super.key, required this.message});
   final String message;
 
   @override
